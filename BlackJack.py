@@ -47,13 +47,13 @@ bien=True
 while(juega==True):
     respuesta = input('¿Quieres seguir jugando?(S/N): ')
     
-    if(respuesta=="s"):
+    if(respuesta=="s" or "S"):
         print("Su nueva seleccion es:", end=" ")
         carta = choice(lista_cartas)
         score += cartas[carta]
         print(carta, end=" ")
         print(" >>> su puntuación es de", score)
-    elif(respuesta=="n"):
+    elif(respuesta=="n" or "N"):
         juega=False
     else:
         print("La respuesta debe ser una N o una S.")
