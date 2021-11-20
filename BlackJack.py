@@ -43,8 +43,10 @@ main_banca = sample(lista_cartas, 2)
 score_banca = sum(cartas[carta] for carta in main_banca)
 
 juega=True
+bien=True
 while(juega==True):
     respuesta = input('¿Quieres seguir jugando?(S/N): ')
+    
     if(respuesta=="s"):
         print("Su nueva seleccion es:", end=" ")
         carta = choice(lista_cartas)
@@ -55,15 +57,15 @@ while(juega==True):
         juega=False
     else:
         print("La respuesta debe ser una N o una S.")
-    if(score_banca<13):
-        main_banca = sample(lista_cartas, 1)
+    
     if(score>21):
         print("Te has pasado de 21.")
         juega=False
-print("La banca tiene: {} {}  >> su score es {}".format(main_banca[0],
-                                                          main_banca[1],
-                                                          score_banca))
-if(score_banca<score):
+        bien=False
+
+print("La banca tiene: {} {}  >> su score es {}".format(main_banca[0],main_banca[1],score_banca))
+
+if((score_banca<score)and bien==True):
     print("Has ganado")
 else:
     print("Has perdido")
