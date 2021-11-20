@@ -41,16 +41,29 @@ print(" >>> su puntuación es de", score)
 
 main_banca = sample(lista_cartas, 2)
 score_banca = sum(cartas[carta] for carta in main_banca)
-print("La banca tiene: {} {}  >> su score es {}".format(main_banca[0],
-                                                          main_banca[1],
-                                                          score_banca))
 
 juega=True
-while(juega):
+while(juega==True):
     respuesta = input('¿Quieres seguir jugando?(S/N): ')
-    if(respuesta=="s","S"):
-
-    elif(respuesta=="n","N"):
+    if(respuesta=="s"):
+        print("Su nueva seleccion es:", end=" ")
+        carta = choice(lista_cartas)
+        score += cartas[carta]
+        print(carta, end=" ")
+        print(" >>> su puntuación es de", score)
+    elif(respuesta=="n"):
         juega=False
     else:
         print("La respuesta debe ser una N o una S.")
+    if(score_banca<13):
+        main_banca = sample(lista_cartas, 1)
+    if(score>21):
+        print("Te has pasado de 21.")
+        juega=False
+print("La banca tiene: {} {}  >> su score es {}".format(main_banca[0],
+                                                          main_banca[1],
+                                                          score_banca))
+if(score_banca<score):
+    print("Has ganado")
+else:
+    print("Has perdido")
