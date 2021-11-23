@@ -30,6 +30,8 @@ for carta in sorted(cartas.keys()):
 print("3\ Black Jack")
 lista_cartas = list(cartas)
 
+#Empieza juego
+
 print("Ha seleccionado:", end=" ")
 carta = choice(lista_cartas)
 score = cartas[carta]
